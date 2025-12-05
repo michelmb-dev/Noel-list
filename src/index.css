@@ -1,3 +1,17 @@
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,12 +19,9 @@
 }
 
 body {
-    font-family: "Arial", sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+    margin: 0;
     min-height: 100vh;
-    padding: 40px 20px;
-    overflow-x: hidden;
-    position: relative;
+    padding: 20px 10px;
 }
 
 /* Flocons de neige */
@@ -38,10 +49,10 @@ body {
     z-index: 2;
 }
 
-h1 {
+.title {
     text-align: center;
     color: white;
-    font-size: 3em;
+    font-size: 2em;
     margin-bottom: 50px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-family: "Georgia", serif;
@@ -49,27 +60,23 @@ h1 {
 
 .wishlist-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 60px 40px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    padding: 10px;
+    place-items: center;
 }
 
-.wishlist-item {
+.item {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Décalage en quinconce */
-.wishlist-item:nth-child(even) {
-    margin-top: 80px;
-}
-
 /* Boule de Noël */
-.ornament {
-    width: 200px;
-    height: 200px;
+.item-ball {
+    width: 250px;
+    aspect-ratio: 1;
     border-radius: 50%;
     background: linear-gradient(145deg, #ff4444, #cc0000);
     box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.4),
@@ -84,29 +91,8 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-.ornament:hover {
-    transform: scale(1.05) !important;
-}
-
-/* Reflet sur la boule */
-.ornament::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    width: 80px;
-    height: 80px;
-    background: radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.6) 0%,
-            rgba(173, 216, 230, 0.3) 40%,
-            transparent 70%
-    );
-    border-radius: 50%;
-}
-
 /* Effet de glace supplémentaire */
-.ornament::after {
+.item-ball::after {
     content: "";
     position: absolute;
     top: 0;
@@ -127,66 +113,42 @@ h1 {
     pointer-events: none;
 }
 
-/* Attache de la boule */
-.ornament-cap {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 30px;
-    background: linear-gradient(180deg, #ffd700, #ffed4e);
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.ornament-cap::before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 10px;
-    height: 10px;
-    background: #ffd700;
-    border-radius: 50%;
-}
-
-/* Image dans la boule */
-.ornament-image {
+.item-ball-image {
+    padding: .5rem;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 50%;
+    object-fit: fill;
     opacity: 0.9;
+    border-radius: 50%;
 }
 
 /* Badge "acheté" */
-.checked-badge {
+.item-reserved {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #22c55e;
+    top: -10px;
+    right: -10px;
+    background: #b71d1d;
     color: white;
     padding: 5px 10px;
     border-radius: 20px;
-    font-size: 0.8em;
+    font-size: 1rem;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transform: rotate(15deg);
     z-index: 10;
 }
 
 /* Informations du produit */
 .item-info {
+    position: relative;
     text-align: center;
     margin-top: 20px;
     background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
+    padding: 1rem;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 250px;
+    max-width: 300px;
 }
 
 .item-name {
@@ -194,6 +156,9 @@ h1 {
     color: #1e3c72;
     margin-bottom: 10px;
     font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .item-price {
@@ -205,31 +170,26 @@ h1 {
 
 .item-link {
     display: inline-block;
-    background: #cc0000;
+    background: #1d9649;
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
     text-decoration: none;
     transition: background 0.3s ease;
     font-weight: bold;
 }
 
 .item-link:hover {
-    background: #ff4444;
+    background: #1a6b36;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
+@media (min-width: 768px) {
+    .title {
+        font-size: 2.5rem;
     }
 
-    .ornament {
-        width: 150px;
-        height: 150px;
-    }
-
-    .wishlist-item:nth-child(even) {
-        margin-top: 40px;
+    .item-info {
+        max-width: 350px;
     }
 }
