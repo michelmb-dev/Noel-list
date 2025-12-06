@@ -4,7 +4,7 @@
     "price": 2150,
     "image": "https://m.media-amazon.com/images/I/81macZef4GL._AC_AA180_.jpg",
     "source": "https://www.amazon.fr/gp/product/B08LDBLJY5/ref=ox_sc_act_image_6?smid=A2GQB3MHLM5UIS&psc=1",
-    "reserved": false
+    "reserved": true
   },
   {
     "name": "Ocean Scene: Coloring Book for Adults and Kids",
@@ -16,9 +16,9 @@
   {
     "name": "Comfort Food: Bold and Easy Coloring Book for Adults and Teens",
     "price": 1199,
-    "image": "https://m.media-amazon.com/images/I/81macZef4GL._AC_AA180_.jpg",
+    "image": "https://m.media-amazon.com/images/I/71DtedCR0ML._AC_AA180_.jpg",
     "source": "https://www.amazon.fr/gp/product/1967727112/ref=ox_sc_act_image_4?smid=A1X6FK5RDHNB96&psc=1",
-    "reserved": true
+    "reserved": false
   },
 
   {
