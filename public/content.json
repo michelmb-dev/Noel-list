@@ -11,14 +11,14 @@
     "price": 1199,
     "image": "https://m.media-amazon.com/images/I/71Jx2S9E4ZL._AC_AA180_.jpg",
     "source": "https://www.amazon.fr/gp/product/B0DBZ7986Z/ref=ox_sc_act_image_5?smid=A1X6FK5RDHNB96&psc=1",
-    "reserved": false
+    "reserved": true
   },
   {
     "name": "Comfort Food: Bold and Easy Coloring Book for Adults and Teens",
     "price": 1199,
     "image": "https://m.media-amazon.com/images/I/71DtedCR0ML._AC_AA180_.jpg",
     "source": "https://www.amazon.fr/gp/product/1967727112/ref=ox_sc_act_image_4?smid=A1X6FK5RDHNB96&psc=1",
-    "reserved": false
+    "reserved": true
   },
 
   {
@@ -47,6 +47,6 @@
     "price": 1468,
     "image": "https://m.media-amazon.com/images/I/71marZLaw1L._AC_AA180_.jpg",
     "source": "https://www.amazon.fr/gp/product/B0DHL3KZ4B/ref=ox_sc_act_image_1?smid=AJRSCZ43ECRLK&th=1",
-    "reserved": false
+    "reserved": true
   }
 ]
